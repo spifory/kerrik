@@ -1,16 +1,16 @@
 import datetime
 from logging import getLogger
-from eludris.ext.commands import Bot
+from pydris.client import Client
 
 LOG = getLogger(__name__)
 
 
-class Kerrik(Bot):
+class Kerrik(Client):
     def __init__(self):
         self.start_time: datetime.datetime
-        super().__init__("Kerrik", "-")
+        super().__init__("Kerrik", prefix="-")
 
-    async def run(self) -> None:
+    async def start(self) -> None:
         self.start_time = datetime.datetime.now()
         LOG.info("Starting Kerrik...")
-        return await super().run()
+        return await super().start()

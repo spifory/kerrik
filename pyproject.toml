@@ -8,9 +8,9 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-eludris-py = {git = "https://github.com/teaishealthy/eludris.py"}
 taskipy = "^1.10.3"
 python-dotenv = "^0.21.0"
+pydris = {git = "https://github.com/EnokiUN/pydris"}
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.10.1"

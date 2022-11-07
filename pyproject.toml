@@ -10,7 +10,9 @@ readme = "README.md"
 python = "^3.10"
 taskipy = "^1.10.3"
 python-dotenv = "^0.21.0"
-pydris = {git = "https://github.com/EnokiUN/pydris"}
+disnake = "^2.7.0"
+disnake-ext-plugins = {git = "https://github.com/Chromosomologist/disnake-ext-plugins/"}
+disnake-ext-components = {git = "https://github.com/DisnakeCommunity/disnake-ext-components"}
 
 [tool.poetry.group.dev.dependencies]
 isort = "^5.10.1"

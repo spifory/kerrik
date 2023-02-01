@@ -16,6 +16,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 export const loadCommands = (bot: Kerrik) => {
     readdirSync(path.join(__dirname, '..', 'commands')).forEach(async (file) => {
         const { command } = await import(path.join(__dirname, '..', 'commands', file));
-        bot.addCommand(command.name, command.aliases || [], command.callback);
+        bot.executeCommand(command.name, command.aliases || [], command.callback);
     });
 };

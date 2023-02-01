@@ -19,6 +19,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 export const loadEvents = (bot: Kerrik) => {
     readdirSync(path.join(__dirname, '..', 'events')).forEach(async (file) => {
         const { event } = await import(path.join(__dirname, '..', 'events', file));
-        bot.on(event.name, event.callback);
+        bot.on(event.name, event.callback.bind(null, bot));
     });
 };

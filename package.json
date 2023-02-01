@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "dotenv": "^16.0.3",
-    "evangeline": "^1.0.2",
+    "evangeline": "^1.2.0",
     "tsc-watch": "^6.0.0"
   }
 }

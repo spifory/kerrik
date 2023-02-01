@@ -1,6 +1,6 @@
 import Command from '../handlers/commands.js';
 
-export const command: Command = {
+export default {
     name: 'upsince',
     description: 'See how long I\'ve been online',
     aliases: ['uptime', 'up-since'],
@@ -9,4 +9,4 @@ export const command: Command = {
         const stringUpTime = new Date(bot.startTime).toLocaleString('en-ZA');
         bot.sendMessage(`I've been online since ${stringUpTime}`);
     }
-};
+} as Command;

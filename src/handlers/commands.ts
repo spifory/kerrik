@@ -17,7 +17,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const loadCommands = (bot: Kerrik) => {
     readdirSync(path.join(__dirname, '..', 'commands')).forEach(async (file) => {
-        const { command } = await import(path.join(__dirname, '..', 'commands', file));
-        bot.executeCommand(command.name, command.aliases || [], command.callback);
+        const command: Command = (await import(path.join(__dirname, '..', 'commands', file))).default;
+        try {
+            bot.executeCommand(command.name, command.aliases || [], command.callback);
+            console.info(`\`${command.name}\` command loaded`);
+        } catch (e) {
+            console.trace(`[E] Error loading \`${file}\`: ${e}`);
+            console.warn('[E] Exiting...');
+            process.exit(1);
+        }
     });
 };

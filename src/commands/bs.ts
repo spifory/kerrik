@@ -1,6 +1,6 @@
 import Command from '../handlers/commands.js';
 
-export const command: Command = {
+export default {
     name: 'bs',
     description: 'Determine how much a you or a person is spewing',
     aliases: ['bs-o-metre', 'bs-metre'],
@@ -31,4 +31,4 @@ export const command: Command = {
             }
         }
     }
-};
+} as Command;

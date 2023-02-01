@@ -1,18 +1,13 @@
 import { Kerrik } from './bot.js'
+import { loadCommands } from './handlers/commands.js'
+import { loadEvents } from './handlers/events.js'
 
 const bot = new Kerrik()
 
-bot.on('messageCreate', async (msg) => {
-    const prefixes = ['-', 'kerrik ', 'kerrik']
-    const prefix = prefixes.find((p) => msg.content.startsWith(p))
-    if (!prefix) return
+function main() {
+    loadCommands(bot)
+    loadEvents(bot)
+    bot.connect()
+}
 
-    const args = msg.content.slice(prefix.length).trim().split(/ +/)
-    const command = args.shift()?.toLowerCase()
-
-    if (command === 'ping') {
-        bot.sendMessage('pong!')
-    }
-})
-
-bot.connect()
+main()

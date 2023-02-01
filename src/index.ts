@@ -1,13 +1,13 @@
-import { Kerrik } from './bot.js'
-import { loadCommands } from './handlers/commands.js'
-import { loadEvents } from './handlers/events.js'
+import { Kerrik } from './bot.js';
+import { loadCommands } from './handlers/commands.js';
+import { loadEvents } from './handlers/events.js';
 
-const bot = new Kerrik()
+const bot = new Kerrik();
 
 function main() {
-    loadCommands(bot)
-    loadEvents(bot)
-    bot.connect()
+    loadCommands(bot);
+    loadEvents(bot);
+    bot.connect();
 }
 
-main()
+main();

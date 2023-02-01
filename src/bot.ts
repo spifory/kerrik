@@ -8,11 +8,11 @@ export class Kerrik extends Bot {
         
         this.on('ready', () => {
             this.startTime = Date.now()
-            console.info(`[I] startTime set to ${this.startTime} (${new Date(this.startTime).toLocaleString()})`)
+            console.info(`[I] startTime set to ${this.startTime} (${new Date(this.startTime).toLocaleString('en-ZA')})`)
         })
     }
 
-    async addCommand(
+    async executeCommand(
         name: string,
         aliases: string[],
         callback: (bot: Kerrik, msg: Message, args: string[]) => void) {

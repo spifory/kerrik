@@ -7,12 +7,15 @@ import { readdirSync } from 'fs';
 import { Kerrik } from '../bot.js';
 
 export default interface Event<EventName extends keyof ClientEvents> {
+    name: EventName;
     callback: (bot: Kerrik, ...args: ClientEvents[EventName]) => void;
 }
 
 interface ClientEvents {
     ready: [];
     messageCreate: [Message];
+    close: [number, Buffer];
+    error: [Error]
 }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

@@ -25,7 +25,7 @@ export const loadEvents = (bot: Kerrik) => {
         const event = (await import(path.join(__dirname, '..', 'events', file))).default;
         try {
             bot.on(event.name, event.callback.bind(null, bot));
-            console.info(`\`${event.name}\` event listener`);
+            console.info(`\`${file}\` event listener`);
         } catch (e) {
             console.trace(`[E] Error loading ${file}: ${e}`);
             console.warn('[W] Exiting...');

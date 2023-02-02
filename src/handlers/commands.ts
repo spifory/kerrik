@@ -11,12 +11,15 @@ export default interface Command {
     description: string;
     aliases?: string[];
     callback: (bot: Kerrik, msg: Message, args: string[]) => void;
-}
+};
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const loadCommands = (bot: Kerrik) => {
     readdirSync(path.join(__dirname, '..', 'commands')).forEach(async (file) => {
+        if (file.startsWith('_')) {
+            return;
+        }
         const command: Command = (await import(path.join(__dirname, '..', 'commands', file))).default;
         try {
             bot.executeCommand(command.name, command.aliases || [], command.callback);
